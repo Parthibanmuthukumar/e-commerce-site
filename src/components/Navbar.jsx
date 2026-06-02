@@ -28,7 +28,10 @@ export default function Navbar({
       </div>
 
       {/* Primary Sticky Header */}
-      <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-[#E5E0D8] transition-all duration-300">
+      <header 
+        style={{ backgroundColor: '#FAF9F5' }}
+        className="sticky top-0 z-30 w-full border-b border-[#E5E0D8] transition-all duration-300"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
@@ -150,15 +153,18 @@ export default function Navbar({
       {/* Soft Dim Blur Mask Overlay (Moved outside <header> for global unconstrained viewport context) */}
       <div 
         className={`fixed inset-0 bg-[#1C1A17]/40 backdrop-blur-sm z-40 md:hidden transition-opacity duration-500 ease-out ${
-          mobileMenuOpen ? 'opacity-100 animate-fade-in' : 'opacity-0 pointer-events-none'
+          mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setMobileMenuOpen(false)}
       ></div>
 
       {/* Sliding Sidebar Body (solid bg-[#FAF9F5] cream background to match luxury warm aesthetic, z-50 viewport-level stacking) */}
-      <div className={`fixed right-0 top-0 bottom-0 w-[300px] max-w-[85vw] bg-[#FAF9F5] border-l border-[#E5E0D8] shadow-2xl z-50 md:hidden flex flex-col justify-between p-6 transition-transform duration-500 ease-out ${
-        mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
+      <div 
+        style={{ backgroundColor: '#FAF9F5', opacity: 1 }}
+        className={`fixed right-0 top-0 bottom-0 w-[300px] max-w-[85vw] border-l border-[#E5E0D8] shadow-2xl z-50 md:hidden flex flex-col justify-between p-6 transition-transform duration-500 ease-out ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
         
         {/* Top Panel Brand Logo & Close Trigger */}
         <div className="flex items-center justify-between pb-6 border-b border-[#E5E0D8]">
