@@ -135,7 +135,7 @@ export default function App() {
     {
       icon: <Truck size={24} className="text-[#C26B4F]" />,
       title: "COMPLEMENTARY DELIVERY",
-      desc: "Free express shipping on all orders over $150",
+      desc: "Free express shipping on all orders over ₹12,000",
     },
     {
       icon: <RotateCcw size={24} className="text-[#C26B4F]" />,

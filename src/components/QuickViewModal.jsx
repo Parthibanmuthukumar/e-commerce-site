@@ -100,11 +100,11 @@ export default function QuickViewModal({
                 {/* Price tag */}
                 <div className="flex items-baseline gap-3">
                   <span className="text-xl sm:text-2xl font-bold text-cyber-black font-serif tracking-tight">
-                    ${product.price}
+                    ₹{product.price}
                   </span>
                   {hasDiscount && (
                     <span className="text-sm font-semibold text-cyber-muted line-through">
-                      ${product.originalPrice}
+                      ₹{product.originalPrice}
                     </span>
                   )}
                 </div>

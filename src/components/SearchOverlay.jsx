@@ -126,7 +126,7 @@ export default function SearchOverlay({
 
                   {/* Price and Action triggers */}
                   <div className="flex items-center gap-6 shrink-0 font-mono">
-                    <span className="text-sm font-bold text-cyber-black font-serif">${prod.price}</span>
+                    <span className="text-sm font-bold text-cyber-black font-serif">₹{prod.price}</span>
                     <span className="h-8 w-8 rounded-full bg-cyber-slate border border-cyber-border flex items-center justify-center text-cyber-muted group-hover:bg-cyber-black group-hover:text-white group-hover:border-cyber-black transition-all">
                       <Eye size={13} />
                     </span>

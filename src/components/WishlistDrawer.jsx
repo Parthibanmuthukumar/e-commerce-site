@@ -85,7 +85,7 @@ export default function WishlistDrawer({
                   </h4>
                   
                   <div className="text-xs font-extrabold text-white font-display mt-0.5">
-                    ${item.price}
+                    ₹{item.price}
                   </div>
 
                   {/* Quantity selector & Price row */}

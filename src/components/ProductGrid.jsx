@@ -195,11 +195,11 @@ export default function ProductGrid({
                   {/* Pricing Column */}
                   <div className="flex items-baseline gap-2">
                     <span className="text-base sm:text-lg font-bold text-cyber-black tracking-tight font-serif">
-                      ${prod.price}
+                      ₹{prod.price}
                     </span>
                     {hasDiscount && (
                       <span className="text-[10px] sm:text-xs font-semibold text-cyber-muted line-through">
-                        ${prod.originalPrice}
+                        ₹{prod.originalPrice}
                       </span>
                     )}
                   </div>

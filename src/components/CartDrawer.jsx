@@ -132,7 +132,7 @@ export default function CartDrawer({
                     </div>
 
                     <span className="text-sm font-extrabold text-white tracking-tight font-display">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ₹{(item.price * item.quantity).toFixed(2)}
                     </span>
                   </div>
 
@@ -189,23 +189,23 @@ export default function CartDrawer({
             <div className="space-y-2 text-xs font-semibold tracking-wide">
               <div className="flex justify-between text-slate-500">
                 <span>SUBTOTAL</span>
-                <span className="font-mono text-slate-300">${subtotal.toFixed(2)}</span>
+                <span className="font-mono text-slate-300">₹{subtotal.toFixed(2)}</span>
               </div>
               {discountPercent > 0 && (
                 <div className="flex justify-between text-emerald-400 font-mono">
                   <span>DISCOUNT (25%)</span>
-                  <span>-${discountAmount.toFixed(2)}</span>
+                  <span>-₹{discountAmount.toFixed(2)}</span>
                 </div>
               )}
               <div className="flex justify-between text-slate-500">
                 <span>ESTIMATED COMPUTING FEE</span>
                 <span className="font-mono text-slate-300">
-                  {shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`}
+                  {shipping === 0 ? "FREE" : `₹${shipping.toFixed(2)}`}
                 </span>
               </div>
               <div className="flex justify-between text-sm font-extrabold border-t border-slate-900/60 pt-3 text-white">
                 <span>ESTIMATED TOTAL</span>
-                <span className="font-mono text-cyber-cyan text-base tracking-tight">${total.toFixed(2)}</span>
+                <span className="font-mono text-cyber-cyan text-base tracking-tight">₹{total.toFixed(2)}</span>
               </div>
             </div>
 

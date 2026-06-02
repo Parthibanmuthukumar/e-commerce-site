@@ -23,12 +23,12 @@ export default function Navbar({
       {/* Promo Ticker Bar */}
       <div className="w-full bg-[#1C1A17] text-[#FAF9F5] py-2.5 px-4 text-[10px] font-bold tracking-widest text-center uppercase border-b border-white/5 select-none">
         <span className="inline-block animate-pulse-slow">
-          ⚡ COMPLEMENTARY EXPRESS COURIER SHIPPING WORLDWIDE FOR ORDERS OVER $150
+          ⚡ COMPLEMENTARY EXPRESS COURIER SHIPPING WORLDWIDE FOR ORDERS OVER ₹12,000
         </span>
       </div>
 
       {/* Primary Sticky Header */}
-      <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-[#E5E0D8] transition-all duration-300">
+      <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-[#E5E0D8] transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
@@ -143,81 +143,81 @@ export default function Navbar({
 
           </div>
         </div>
+      </header>
 
-        {/* --- Responsive Mobile Navigation Drawer (Right-to-Left Sliding Sidebar) --- */}
+      {/* --- Responsive Mobile Navigation Drawer (Right-to-Left Sliding Sidebar) --- */}
+      
+      {/* Soft Dim Blur Mask Overlay (Moved outside <header> for global unconstrained viewport context) */}
+      <div 
+        className={`fixed inset-0 bg-[#1C1A17]/40 backdrop-blur-sm z-40 md:hidden transition-opacity duration-500 ease-out ${
+          mobileMenuOpen ? 'opacity-100 animate-fade-in' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setMobileMenuOpen(false)}
+      ></div>
+
+      {/* Sliding Sidebar Body (solid bg-[#FAF9F5] cream background to match luxury warm aesthetic, z-50 viewport-level stacking) */}
+      <div className={`fixed right-0 top-0 bottom-0 w-[300px] max-w-[85vw] bg-[#FAF9F5] border-l border-[#E5E0D8] shadow-2xl z-50 md:hidden flex flex-col justify-between p-6 transition-transform duration-500 ease-out ${
+        mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}>
         
-        {/* Soft Dim Blur Mask Overlay */}
-        <div 
-          className={`fixed inset-0 bg-[#1C1A17]/40 backdrop-blur-sm z-50 md:hidden transition-opacity duration-500 ease-out ${
-            mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-          onClick={() => setMobileMenuOpen(false)}
-        ></div>
+        {/* Top Panel Brand Logo & Close Trigger */}
+        <div className="flex items-center justify-between pb-6 border-b border-[#E5E0D8]">
+          <span className="font-serif text-sm font-bold tracking-widest text-[#1C1A17]">ANTI GRAVITY</span>
+          <button 
+            onClick={() => setMobileMenuOpen(false)}
+            className="p-1.5 text-[#7A756E] hover:text-[#1C1A17] transition-colors rounded border border-[#E5E0D8] bg-[#FAF9F5] cursor-pointer"
+          >
+            <X size={15} />
+          </button>
+        </div>
 
-        {/* Sliding Sidebar Body (duration-500 for slow luxury feel) */}
-        <div className={`fixed right-0 top-0 bottom-0 w-[300px] max-w-[85vw] bg-white border-l border-[#E5E0D8] shadow-2xl z-50 md:hidden flex flex-col justify-between p-6 transition-transform duration-500 ease-out ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}>
-          
-          {/* Top Panel Brand Logo & Close Trigger */}
-          <div className="flex items-center justify-between pb-6 border-b border-[#E5E0D8]">
-            <span className="font-serif text-sm font-bold tracking-widest text-[#1C1A17]">ANTI GRAVITY</span>
-            <button 
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-1.5 text-[#7A756E] hover:text-[#1C1A17] transition-colors rounded border border-[#E5E0D8] bg-[#FAF9F5] cursor-pointer"
-            >
-              <X size={15} />
-            </button>
-          </div>
-
-          {/* Stacks navigation menu links in middle */}
-          <nav className="flex-1 py-8 flex flex-col space-y-4 text-left">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onChangePage(link.id);
-                }}
-                className={`w-full text-left font-display font-bold text-xs uppercase tracking-widest py-3 border-b border-[#E5E0D8]/40 transition-colors cursor-pointer ${
-                  currentPage === link.id
-                    ? "text-[#C26B4F] pl-2 border-l border-[#C26B4F]"
-                    : "text-[#7A756E] hover:text-[#1C1A17] pl-0"
-                }`}
-              >
-                {link.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* Bottom Panel Actions */}
-          <div className="pt-6 border-t border-[#E5E0D8] space-y-4 text-left">
+        {/* Stacks navigation menu links in middle */}
+        <nav className="flex-1 py-8 flex flex-col space-y-4 text-left">
+          {navLinks.map((link) => (
             <button
+              key={link.id}
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenWishlist();
+                onChangePage(link.id);
               }}
-              className="flex items-center justify-between w-full text-[#1C1A17] hover:text-[#C26B4F] text-xs font-bold uppercase tracking-widest cursor-pointer"
+              className={`w-full text-left font-display font-bold text-xs uppercase tracking-widest py-3 border-b border-[#E5E0D8]/40 transition-colors cursor-pointer ${
+                currentPage === link.id
+                  ? "text-[#C26B4F] pl-2 border-l border-[#C26B4F]"
+                  : "text-[#7A756E] hover:text-[#1C1A17] pl-0"
+              }`}
             >
-              <span className="flex items-center gap-2">
-                <Heart size={16} />
-                Wishlist Staging
-              </span>
-              <span className="bg-[#F4F1EA] text-[#7A756E] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#E5E0D8]">
-                {wishlistCount}
-              </span>
+              {link.name}
             </button>
+          ))}
+        </nav>
 
-            <div className="flex items-center gap-2.5 pt-2 border-t border-[#E5E0D8]/40">
-              <div className="h-8 w-8 rounded-full border border-[#E5E0D8] bg-[#F4F1EA] flex items-center justify-center text-[#1C1A17]">
-                <User size={15} />
-              </div>
-              <span className="text-[#1C1A17] text-xs font-bold uppercase tracking-widest">Developer Space</span>
+        {/* Bottom Panel Actions */}
+        <div className="pt-6 border-t border-[#E5E0D8] space-y-4 text-left">
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenWishlist();
+            }}
+            className="flex items-center justify-between w-full text-[#1C1A17] hover:text-[#C26B4F] text-xs font-bold uppercase tracking-widest cursor-pointer"
+          >
+            <span className="flex items-center gap-2">
+              <Heart size={16} />
+              Wishlist Staging
+            </span>
+            <span className="bg-[#F4F1EA] text-[#7A756E] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#E5E0D8]">
+              {wishlistCount}
+            </span>
+          </button>
+
+          <div className="flex items-center gap-2.5 pt-2 border-t border-[#E5E0D8]/40">
+            <div className="h-8 w-8 rounded-full border border-[#E5E0D8] bg-[#F4F1EA] flex items-center justify-center text-[#1C1A17]">
+              <User size={15} />
             </div>
+            <span className="text-[#1C1A17] text-xs font-bold uppercase tracking-widest">Developer Space</span>
           </div>
-
         </div>
-      </header>
+
+      </div>
     </>
   );
 }
